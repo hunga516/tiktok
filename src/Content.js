@@ -1,23 +1,56 @@
 import { useEffect, useState } from "react";
-const types = ["posts", "comments", "albums"]
+
+const list = [
+    {
+        id: 1,
+        name: 'Le Ngoc Loc',
+        degree: 'Admin'
+    },
+    {
+        id: 2,
+        name: 'Nguyen Bao Tran',
+        degree: 'Modder'
+    },
+    {
+        id: 3,
+        name: 'Nguyen Hoang Truong An',
+        degree: 'Staff'
+    }
+]
 
 function Content() {
-    const [avatar, setAvatar] = useState()
+    const [activeId, setActiveId] = useState(1)
 
-    function handlePreviewAvatar(e) {
-        const file = e.target.files[0]
-        setAvatar(URL.createObjectURL(file))
+    useEffect(() => {
+        function handleComment(e) {
+            console.log(e.detail);
+        }
+        window.addEventListener(`item-${activeId}`, handleComment)
 
+        return () => {
+            window.removeEventListener(`item-${activeId}`, handleComment)
+        }
+    }, [activeId])
+
+    function handleClick(id) {
+        setActiveId(id)
     }
 
     return (
         <div>
-            <input
-                type="file"
-                onChange={handlePreviewAvatar}
-            />
-            <img src={avatar} />
-        </div>
+            <ul>
+                {list.map((item, index) => (
+                    < li
+                        style={{
+                            color: item.id === activeId ? 'red' : '#333'
+                        }}
+                        key={index}
+                        onClick={() => handleClick(item.id)}
+                    >{item.name}
+                    </li>
+                ))}
+            </ul>
+        </div >
     )
 }
 
