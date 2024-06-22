@@ -1,23 +1,23 @@
-import { useState } from "react";
-import React from 'react';
-import Content from "./Content";
-
+import { useEffect, useState, useRef } from "react";
 
 function App() {
-  const [toggle, setToggle] = useState(false)
-
-  function handleToggle() {
-    setToggle(prev => !prev)
-  }
-
-
+  const [count, setCount] = useState(60)
+  useEffect(() => {
+    const timeOutId = setTimeout(() => {
+      setCount(prev => prev - 1)
+    }, 1000)
+    return () => {
+      clearTimeout(timeOutId)
+    }
+  }, [count])
 
   return (
-    <div className="App">
-      <button onClick={handleToggle}>Toggle</button>
-      {toggle && <Content />}
-    </div>
-  );
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(prev => prev - 1)}>Start</button>
+      <button onClick={() => setCount(count)}>Stop</button>
+    </div >
+  )
 }
 
 export default App;
