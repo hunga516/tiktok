@@ -1,27 +1,17 @@
-import { useEffect, useState } from "react";
+import { memo } from "react";
 
-function Content() {
-    const [count, setCount] = useState(60)
-    let timerId
+function Content({ onStart, count }) {
 
-    function handleStart() {
-        setInterval(() => {
-            setCount(prev => prev - 1)
-        }, 1000)
-        console.log(timerId);
-    }
-    function handleStop() {
-        clearInterval(timerId)
-        console.log(timerId);
-    }
+    console.log(onStart);
 
     return (
-        <div>
-            <h1>{count}</h1>
-            <button onClick={handleStart}>Start</button>
-            <button onClick={handleStop}>Stop</button>
-        </div >
+        <>
+            <h1>Hiiii</h1>
+            <hi>{count}</hi>
+            <button onClick={onStart}>Start</button>
+        </>
+
     )
 }
 
-export default Content;
+export default memo(Content);
