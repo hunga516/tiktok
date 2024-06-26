@@ -50,7 +50,7 @@ const reducer = (state, action) => {
 
       return state = {
         ...state,
-        jobs: newJobs
+        jobs: newJob
       }
     default:
       throw new Error('Invalid aciton.')
