@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useReducer, useRef, useState } from "react";
 
 const initial = {
@@ -92,6 +93,13 @@ function App() {
         ))}
       </ul>
     </div>
+=======
+import TodoApp from './Todo'
+
+function App() {
+  return (
+    <TodoApp />
+>>>>>>> 93a924a (recap)
   )
 }
 
