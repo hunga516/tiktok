@@ -8,12 +8,12 @@ export const initial = {
 const reducer = (state, action) => {
     switch (action.type) {
         case SET_JOB:
-            return state = {
+            return {
                 ...state,
                 job: action.payload
             }
         case ADD_JOB:
-            return state = {
+            return {
                 ...state,
                 jobs: [...state.jobs, action.payload]
             }
@@ -21,7 +21,7 @@ const reducer = (state, action) => {
             const newJobs = [...state.jobs]
             newJobs.splice(action.payload, 1)
 
-            return state = {
+            return {
                 ...state,
                 jobs: newJobs
             }

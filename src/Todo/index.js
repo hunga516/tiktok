@@ -1,9 +1,10 @@
 import { useReducer } from "react";
 import reducer, { initial } from './reducer'
 import { setJob, addJob, deleteJob } from "./actions";
+import logger from './logger'
 
 function App() {
-    const [state, dispatch] = useReducer(reducer, initial)
+    const [state, dispatch] = useReducer(logger(reducer), initial)
     const { job, jobs } = state
 
     const handleSubmit = () => {
