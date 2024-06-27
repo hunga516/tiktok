@@ -3,7 +3,7 @@ import reducer, { initial } from './reducer'
 import { setJob, addJob, deleteJob } from "./actions";
 import logger from './logger'
 
-function App() {
+function App({ Input }) {
     const [state, dispatch] = useReducer(logger(reducer), initial)
     const { job, jobs } = state
 
@@ -31,6 +31,8 @@ function App() {
 
                 ))}
             </ul>
+
+            <h1>{Input}</h1>
         </>
     )
 }

@@ -1,17 +1,9 @@
-import { memo } from "react";
+import Paragraph from "./Paragraph"
 
-function Content({ onStart, count }) {
-
-    console.log(onStart);
-
+function Content() {
     return (
-        <>
-            <h1>Hiiii</h1>
-            <hi>{count}</hi>
-            <button onClick={onStart}>Start</button>
-        </>
-
+        <Paragraph />
     )
 }
 
-export default memo(Content);
+export default Content
