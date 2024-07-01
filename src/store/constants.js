@@ -1,0 +1,6 @@
+export const SET_TODO_INPUT = 'set_todo_input'
+export const ADD_TODO = 'add_todo'
+export const DELETE_TODO = 'delete_job'
+export const EDIT_TODO = 'edit_todo'
+export const SAVE_EDIT_TODO = 'save_edit_todo'
+export const SET_TODO_INPUT_REALTIME = 'set_todo_input_realtime'

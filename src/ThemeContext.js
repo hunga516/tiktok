@@ -6,14 +6,14 @@ const ThemeContext = createContext()
 function ThemeProvider({ children }) {
     const [theme, setTheme] = useState('dark')
 
-    const handleToggle = () => {
+    function handleToggle() {
         setTheme(theme === 'dark' ? 'light' : 'dark')
     }
-
     const value = {
         theme,
         handleToggle
     }
+
 
     return (
         <ThemeContext.Provider value={value}>
@@ -21,6 +21,5 @@ function ThemeProvider({ children }) {
         </ThemeContext.Provider>
     )
 }
-
 
 export { ThemeContext, ThemeProvider }
